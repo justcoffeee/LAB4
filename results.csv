@@ -1,0 +1,12 @@
+experiment,split,accuracy,precision_spam,recall_spam,f1_spam,note
+A_tfidf-uni_LR,val,0.9785,0.9608,0.8750,0.9159,baseline vocab=6327
+A_tfidf-uni_LR,test,0.9737,0.9500,0.8482,0.8962,baseline TN=719 FP=5 FN=17 TP=95
+B_avgw2v_LR,val,0.9797,0.9703,0.8750,0.9202,dim=50 win=5 min_count=5 epochs=5 sampled 60k pairs
+B_avgw2v_LR,test,0.9641,0.8727,0.8571,0.8649,generalization gap vs val
+C_tfidf-uni_SVM,val,0.9892,0.9905,0.9286,0.9585,LinearSVC
+C_tfidf-uni_SVM,test,0.9892,0.9725,0.9464,0.9593,best F1
+tfidf-unibi_LR,val,0.9785,0.9608,0.8750,0.9159,vocab=37559 no gain
+tfidf-unibi_LR,test,0.9725,0.9406,0.8482,0.8920,slightly worse than unigram
+tfidf-nostop_LR,test,0.9701,0.9307,0.8393,0.8826,vocab=6065 keeping stopwords better
+leak-demo,full,0.0000,0.0000,0.0000,0.0000,vocab full-fit=7741 vs train-fit=6327 (+1414 leaked types)
+word-order,avgw2v,0.0000,0.0000,0.0000,0.9863,cos(this movie is good / this movie is not good)=0.9863
